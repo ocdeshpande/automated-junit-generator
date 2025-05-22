@@ -26,7 +26,7 @@ public class GenAIClient {
         headers.setBearerAuth(apiKey);
 
         Map<String, Object> body = Map.of(
-                "model", "gpt-3.5-turbo",
+                "model", "meta-llama/Llama-3.3-70B-Instruct-Turbo-Free",
                 "messages", List.of(
                         Map.of("role", "user", "content", prompt)
                 )
@@ -35,7 +35,7 @@ public class GenAIClient {
         HttpEntity<Map<String, Object>> request = new HttpEntity<>(body, headers);
 
         ResponseEntity<Map> response = restTemplate.postForEntity(
-                "https://api.openai.com/v1/chat/completions",
+                "https://api.together.xyz/v1/chat/completions",
                 request,
                 Map.class
         );
